@@ -1,17 +1,4 @@
-# bach2basics
-
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -224,7 +211,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Donald Kwan - [@your_twitter](https://twitter.com/your_username) - email@gatech.edu
+Joshua Zeng - [@your_twitter](https://twitter.com/your_username) - email@gatech.edu
+Matt Marciszewski - [@your_twitter](https://twitter.com/your_username) - email@gatech.edu
+Venugopal Ananthashayana - [@your_twitter](https://twitter.com/your_username) - email@gatech.edu
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
@@ -281,3 +271,5 @@ Use this space to list resources you find helpful and would like to give credit 
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+
+[README template]: https://github.com/othneildrew/Best-README-Template?tab=readme-ov-file
