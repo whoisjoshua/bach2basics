@@ -7,22 +7,42 @@ import SoundfontProvider from './SoundfontProvider';
 class InteractiveDemo extends React.Component {
   state = {
     feedback: null,
+    currentNoteIndex: 0
   };
 
-  // Set middle C as target note
-  targetNote = MidiNumbers.fromNote('c4');
+  songNotes = [
+    { note: 'b4', display: 'B' },
+    { note: 'a4', display: 'A' },
+    { note: 'g4', display: 'G' },
+    { note: 'b4', display: 'B' },
+    { note: 'a4', display: 'A' },
+    { note: 'g4', display: 'G' },
+    { note: 'g4', display: 'G' },
+    { note: 'g4', display: 'G' },
+    { note: 'g4', display: 'G' },
+    { note: 'a4', display: 'A' },
+    { note: 'a4', display: 'A' },
+    { note: 'a4', display: 'A' },
+    { note: 'b4', display: 'B' },
+    { note: 'a4', display: 'A' },
+    { note: 'g4', display: 'G' },
+  ];
 
-  // Set range to one octave from C4 to B4
   noteRange = {
-    first: MidiNumbers.fromNote('c4'),
+    first: MidiNumbers.fromNote('g4'),
     last: MidiNumbers.fromNote('b4'),
   };
 
   handleNotePlay = (playNote) => (midiNumber) => {
     playNote(midiNumber);
     
-    if (midiNumber === this.targetNote) {
-      this.setState({ feedback: 'correct' });
+    const currentExpectedNote = MidiNumbers.fromNote(this.songNotes[this.state.currentNoteIndex].note);
+    
+    if (midiNumber === currentExpectedNote) {
+      this.setState(prevState => ({
+        feedback: 'correct',
+        currentNoteIndex: (prevState.currentNoteIndex + 1) % this.songNotes.length
+      }));
     } else {
       this.setState({ feedback: 'wrong' });
     }
@@ -30,6 +50,15 @@ class InteractiveDemo extends React.Component {
     setTimeout(() => {
       this.setState({ feedback: null });
     }, 1000);
+  };
+
+  renderNoteLabel = ({ keyboardShortcut, midiNumber }) => {
+    const noteNames = {
+      [MidiNumbers.fromNote('g4')]: 'G',
+      [MidiNumbers.fromNote('a4')]: 'A',
+      [MidiNumbers.fromNote('b4')]: 'B',
+    };
+    return noteNames[midiNumber] || '';
   };
 
   render() {
@@ -47,9 +76,42 @@ class InteractiveDemo extends React.Component {
         render={({ isLoading, playNote, stopNote }) => (
           <div>
             <div className="text-center">
-              <p>Try to play middle C!</p>
-              <div style={{ color: '#777' }}>
-                <MdArrowDownward size={32} />
+              <h2 className="mb-4">Hot Cross Buns</h2>
+              
+              <div style={{ 
+                marginBottom: '20px',
+                padding: '20px',
+                backgroundColor: '#f8f9fa',
+                borderRadius: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+              }}>
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'center',
+                  flexWrap: 'wrap',
+                  gap: '10px',
+                  fontSize: '24px',
+                  fontFamily: 'monospace'
+                }}>
+                  {this.songNotes.map((note, index) => (
+                    <span
+                      key={index}
+                      style={{
+                        padding: '5px 10px',
+                        borderRadius: '4px',
+                        backgroundColor: index === this.state.currentNoteIndex ? '#ffe4b5' : 'transparent',
+                        border: '1px solid #ddd'
+                      }}
+                    >
+                      {note.display}
+                    </span>
+                  ))}
+                </div>
+                <div style={{ marginTop: '10px' }}>
+                  <span style={{ backgroundColor: '#ffe4b5', padding: '2px 8px', borderRadius: '4px' }}>
+                    Play this note: {this.songNotes[this.state.currentNoteIndex].display}
+                  </span>
+                </div>
               </div>
               
               {this.state.feedback && (
@@ -71,14 +133,17 @@ class InteractiveDemo extends React.Component {
             <div className="mt-4">
               <DimensionsProvider>
                 {({ containerWidth }) => (
-                  <Piano
-                    noteRange={this.noteRange}
-                    keyboardShortcuts={keyboardShortcuts}
-                    playNote={this.handleNotePlay(playNote)}
-                    stopNote={stopNote}
-                    disabled={isLoading}
-                    width={containerWidth}
-                  />
+                  <div className="piano-container">
+                    <Piano
+                      noteRange={this.noteRange}
+                      keyboardShortcuts={keyboardShortcuts}
+                      playNote={this.handleNotePlay(playNote)}
+                      stopNote={stopNote}
+                      disabled={isLoading}
+                      width={containerWidth}
+                      renderNoteLabel={this.renderNoteLabel}
+                    />
+                  </div>
                 )}
               </DimensionsProvider>
             </div>
