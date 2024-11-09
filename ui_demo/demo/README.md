@@ -14,7 +14,7 @@ In this repo, run:
 
 ```
 yarn install
-yarn link react-piano
+yarn link react-piano-demo
 yarn start
 ```
 
