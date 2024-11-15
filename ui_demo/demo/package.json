@@ -13,6 +13,7 @@
     "react-icons": "^2.2.7",
     "react-piano": "../",
     "react-scripts": "3.3.0",
+    "react-use-websocket": "^4.10.1",
     "serialport": "*",
     "soundfont-player": "^0.10.6"
   },
