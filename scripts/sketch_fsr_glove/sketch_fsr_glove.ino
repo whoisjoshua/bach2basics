@@ -21,8 +21,15 @@
 const float FSR_SENS = 20.0;
 const int FSR_PINS[] = {A1, A2, A3, A4, A5};
 const int NUM_FSR = sizeof(FSR_PINS) / sizeof(FSR_PINS[0]);
-bool fsr_pressed[NUM_FSR] = {false};    // Keep track of pressed states
 
+// Keep track of pressed states
+bool fsr_pressed[NUM_FSR] = {false};    
+
+// Debounce timing for each FSR
+unsigned long last_press_time[NUM_FSR] = {0};
+unsigned long debounce_delay = 50; // 50ms debounce delay (adjust as needed)
+
+// LEDs
 const byte LED_PINS[] = {13, 12, 11, 10, 9};
 const int NUM_LED = sizeof(LED_PINS) / sizeof(LED_PINS[0]);
 
@@ -42,6 +49,8 @@ void setup() {
  * Loop
  */
 void loop() {
+  // Get the current time
+   unsigned long current_time = millis();
   
   // Detect finger presses 
   for (int i = 0; i < NUM_FSR; i++) {
@@ -51,10 +60,11 @@ void loop() {
     //       OR maybe have a calibration button phase (only if there is time)
 
     // Detect finger presses and give LED feedback for each corresponding press
-    if (fsr_val >= FSR_SENS && !fsr_pressed[i]) {
+    if (fsr_val >= FSR_SENS && !fsr_pressed[i] && current_time - last_press_time[i] > debounce_delay) {
       
-      // Update pressed state
+      // Update pressed state and save press time
       fsr_pressed[i] = true;
+      last_press_time[i] = current_time;
       
       // Power LED
       digitalWrite(LED_PINS[i], HIGH);
@@ -73,10 +83,11 @@ void loop() {
     }
 
     // Check for release of the key press
-    else if (fsr_val < FSR_SENS && fsr_pressed[i]) {
+    else if (fsr_val < FSR_SENS && fsr_pressed[i] && current_time - last_press_time[i] > debounce_delay) {
       
-      // Update pressed state
+      // Update pressed state and save release time
       fsr_pressed[i] = false;
+      last_press_time[i] = current_time;
 
       // Power off LED
       digitalWrite(LED_PINS[i], LOW);
