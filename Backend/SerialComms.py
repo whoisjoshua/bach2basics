@@ -56,7 +56,8 @@ def read_serial_data(port="COM3", baud_rate=9600):
             if ser.in_waiting:
                 data = ser.readline().decode('utf-8').strip()
                 print(f"Received: {data}")
-            time.sleep(0.1)
+            # TODO: Maybe I need to not overwhelm the CPU (???)
+            #time.sleep(0.1)
 
     # TODO: Should I remove this and add key events for ending + adjusting latency?
     except KeyboardInterrupt:
