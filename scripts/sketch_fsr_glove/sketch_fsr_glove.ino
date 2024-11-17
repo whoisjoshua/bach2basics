@@ -33,6 +33,9 @@ unsigned long debounce_delay = 50; // 50ms debounce delay (adjust as needed)
 const byte LED_PINS[] = {13, 12, 11, 10, 9};
 const int NUM_LED = sizeof(LED_PINS) / sizeof(LED_PINS[0]);
 
+// Notes
+const char NOTES[] = {'G', 'F', 'E', 'D', 'C'};
+
 /*
  * Setup 
  */
@@ -78,8 +81,9 @@ void loop() {
       }
 
       // Send text via serial port to device dependent on the press of each finger
-      Serial.print("A");
-      Serial.println(i+1); // A1-A5
+      //Serial.print("A");
+      //Serial.println(i+1); // A1-A5
+      Serial.println(NOTES[i]);
     }
 
     // Check for release of the key press
