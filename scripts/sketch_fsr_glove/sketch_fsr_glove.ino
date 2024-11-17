@@ -18,7 +18,7 @@
 //      [X] 10K
 //      [ ] 20K
 //      [ ] 50K
-const float FSR_SENS = 20.0;
+const float FSR_SENS = 50.0;
 const int FSR_PINS[] = {A1, A2, A3, A4, A5};
 const int NUM_FSR = sizeof(FSR_PINS) / sizeof(FSR_PINS[0]);
 
@@ -27,10 +27,10 @@ bool fsr_pressed[NUM_FSR] = {false};
 
 // Debounce timing for each FSR
 unsigned long last_press_time[NUM_FSR] = {0};
-unsigned long debounce_delay = 50; // 50ms debounce delay (adjust as needed)
+unsigned long debounce_delay = 100; // 50ms debounce delay (adjust as needed)
 
 // LEDs
-const byte LED_PINS[] = {13, 12, 11, 10, 9};
+const byte LED_PINS[] = {9, 10, 11, 12, 13};
 const int NUM_LED = sizeof(LED_PINS) / sizeof(LED_PINS[0]);
 
 // Notes
@@ -81,8 +81,8 @@ void loop() {
       }
 
       // Send text via serial port to device dependent on the press of each finger
-      //Serial.print("A");
-      //Serial.println(i+1); // A1-A5
+      Serial.print("A");
+      Serial.println(i+1); // A1-A5
       Serial.println(NOTES[i]);
     }
 

@@ -101,6 +101,13 @@ class InteractiveDemo extends React.Component {
     // Convert received note (e.g., "C", "D", "E", "F", "G") to MIDI number
     const midiNote = `${note.toLowerCase()}4`; // Assuming octave 4
     const midiNumber = MidiNumbers.fromNote(midiNote);
+    console.info('Note received: ', note);
+
+    // Force event due to received note
+    if (note) {
+      // Play note
+      this.handleNotePlay(this.playNoteFunction)(midiNumber);
+    }
     
     // Simulate a note play event
     if (this.playNoteFunction) {
@@ -111,17 +118,21 @@ class InteractiveDemo extends React.Component {
   handleNotePlay = (playNote) => (midiNumber) => {
     // Store playNote function for WebSocket use
     this.playNoteFunction = playNote;
+
+    console.log('handleNotePlay called');
     
     playNote(midiNumber);
     
     const currentExpectedNote = MidiNumbers.fromNote(this.songNotes[this.state.currentNoteIndex].note);
     
     if (midiNumber === currentExpectedNote) {
+      console.log('conditional for midi and checked note');
       this.setState(prevState => ({
         feedback: 'correct',
         currentNoteIndex: (prevState.currentNoteIndex + 1) % this.songNotes.length
       }));
     } else {
+      console.log('else conditional wrong note');
       this.setState({ feedback: 'wrong' });
     }
 
