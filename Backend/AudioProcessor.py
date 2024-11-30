@@ -220,6 +220,7 @@ async def send_output(websocket):
         print('$$$$$$$$$$$$$$$$$$$$$$$')
         audio_data = sd.rec(int(sample_rate * 0.5), samplerate=sample_rate, channels=1)
         sd.wait()
+        audio_data = audio_data.flatten()
         print(type(audio_data), type(ad))
         print(len(audio_data), len(ad))
         # print(audio_data)
