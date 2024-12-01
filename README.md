@@ -79,8 +79,6 @@ Features:
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 * [![React][React.js]][React-url]
 * [![Node.js][Node.js]][Node-url]
 * [![Python][Python.org]][Python-url]
@@ -223,5 +221,3 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com/
 [README template]: https://github.com/othneildrew/Best-README-Template?tab=readme-ov-file
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
