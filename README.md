@@ -82,7 +82,7 @@ Features:
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [![React][React.js]][React-url]
-* [![React][Node.js]][Node-url]
+* [![Node.js][Node.js]][Node-url]
 * [![Python][Python.org]][Python-url]
 * [![Librosa][Librosa.org]][Librosa-url]
 * [![Arduino][Arduino.cc]][Arduino-url]
@@ -191,5 +191,37 @@ Matt Marciszewski - [@your_twitter](https://twitter.com/your_username) - email@g
 Venugopal Ananthashayana - [@your_twitter](https://twitter.com/your_username) - email@gatech.edu
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* [Choose an Open Source License](https://choosealicense.com)
+* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
+* [Malven's Grid Cheatsheet](https://grid.malven.co/)
+* [Img Shields](https://shields.io)
+* [GitHub Pages](https://pages.github.com)
+* [Font Awesome](https://fontawesome.com)
+* [React Icons](https://react-icons.github.io/react-icons/search)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Node.js]: https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white
+[Node-url]: https://nodejs.org
+[Python.org]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+[Python-url]: https://www.python.org/
+[Librosa.org]: https://img.shields.io/badge/Librosa-v0.10.0-ff6f61.svg
+[Librosa-url]: https://librosa.org/
+[Arduino.cc]: https://img.shields.io/badge/Arduino-00878F?logo=arduino&logoColor=fff&style=plastic
+[Arduino-url]: https://www.arduino.cc/
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com/
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com/
+[README template]: https://github.com/othneildrew/Best-README-Template?tab=readme-ov-file
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
