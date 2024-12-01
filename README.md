@@ -183,10 +183,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Donald Kwan - [@your_twitter](https://twitter.com/your_username) - email@gatech.edu
-Joshua Zeng - [@your_twitter](https://twitter.com/your_username) - email@gatech.edu
-Matt Marciszewski - [@your_twitter](https://twitter.com/your_username) - email@gatech.edu
-Venugopal Ananthashayana - [@your_twitter](https://twitter.com/your_username) - email@gatech.edu
+Donald Kwan - email@gatech.edu
+Joshua Zeng - email@gatech.edu
+Matt Marciszewski - email@gatech.edu
+Venugopal Ananthashayana - email@gatech.edu
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
